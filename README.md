@@ -14,8 +14,10 @@
     <td align="center"><a href="https://github.com/huipadyam"><b>@huipadyam</b></td>
     <td align="center"><a href="https://github.com/xaxeon"><b>@xaxeon</b></td>
     <td align="center"><a href="https://github.com/joungGo"><b>@joungGo</b></td>
+    <td align="center"><a href="https://github.com/haeun9988"><b>@haeun9988</b></td>
   </tr>
   <tr> 
+    <td align="center">Java</td>
     <td align="center">Java</td>
     <td align="center">Java</td>
     <td align="center">Java</td>
