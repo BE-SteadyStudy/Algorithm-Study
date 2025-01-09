@@ -1,0 +1,7 @@
+> https://school.programmers.co.kr/learn/courses/30/lessons/298518
+
+```sql
+SELECT COUNT(*) AS FISH_COUNT
+FROM FISH_INFO FI JOIN FISH_NAME_INFO FN USING(FISH_TYPE)
+WHERE FN.FISH_NAME = 'BASS' OR FN.FISH_NAME = 'SNAPPER'
+```
