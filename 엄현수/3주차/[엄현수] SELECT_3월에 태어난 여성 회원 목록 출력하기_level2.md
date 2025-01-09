@@ -1,0 +1,9 @@
+> https://school.programmers.co.kr/learn/courses/30/lessons/131120
+>
+> 날짜 형식을 바꾸기 위해 DATE_FORMAT() 사용
+```sql
+SELECT MEMBER_ID, MEMBER_NAME, GENDER, DATE_FORMAT(DATE_OF_BIRTH, '%Y-%m-%d') AS DATE_OF_BIRTH
+FROM MEMBER_PROFILE
+WHERE MONTH(DATE_OF_BIRTH) = 3 AND TLNO IS NOT NULL AND GENDER = 'W'
+ORDER BY 1;
+```
