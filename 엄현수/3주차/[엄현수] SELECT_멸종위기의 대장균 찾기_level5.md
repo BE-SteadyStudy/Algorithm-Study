@@ -1,0 +1,22 @@
+> https://school.programmers.co.kr/learn/courses/30/lessons/301651
+>
+> 재귀적으로 해결. RECURSIVE 함수를 사용하여 각 세대별로 나누고 자식이 없는 것들의 세대별 개수 출력
+```sql
+WITH RECURSIVE CTE AS (
+    -- 기준이 되는 쿼리
+    SELECT ID, PARENT_ID, 1 AS GEN
+    FROM ECOLI_DATA
+    WHERE PARENT_ID IS NULL
+    
+    UNION ALL
+    -- 조건문
+    SELECT E.ID, E.PARENT_ID, CTE.GEN + 1
+    FROM ECOLI_DATA E JOIN CTE ON E.PARENT_ID = CTE.ID
+    
+)
+
+SELECT COUNT(PARENT.GEN) AS COUNT, PARENT.GEN AS GENERATION
+FROM CTE PARENT LEFT JOIN CTE CHILD ON PARENT.ID = CHILD.PARENT_ID
+WHERE CHILD.PARENT_ID IS NULL
+GROUP BY PARENT.GEN
+```
