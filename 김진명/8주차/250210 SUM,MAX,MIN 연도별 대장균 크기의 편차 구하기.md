@@ -1,0 +1,17 @@
+# 문제 링크
+https://school.programmers.co.kr/learn/courses/30/lessons/299310
+
+# 풀이
+ECOLI_DATA 테이블에서 GROUP BY를 통해 연도와 연도별 가장 큰 대장큔 크기 데이터로 구성된 YEAR_SIZE 테이블을 만듭니다.  
+ECOLI_DATA와 YEAR_SIZE 테이블을 조인하여 YEAR_DEV를 구합니다.
+
+```sql
+WITH YEAR_SIZE AS (
+    SELECT YEAR(DIFFERENTIATION_DATE) YEAR, MAX(SIZE_OF_COLONY) MAX_SIZE
+    FROM ECOLI_DATA
+    GROUP BY YEAR
+)
+SELECT Y.YEAR, (MAX_SIZE - SIZE_OF_COLONY) YEAR_DEV, ID 
+FROM ECOLI_DATA E JOIN YEAR_SIZE Y ON YEAR(E.DIFFERENTIATION_DATE) = Y.YEAR
+ORDER BY Y.YEAR, YEAR_DEV
+```
